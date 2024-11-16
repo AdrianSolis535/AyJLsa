@@ -1,15 +1,17 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
-    ]
+      "jest",  // Incluye tipos de Jest para que el código de pruebas se reconozca correctamente
+      "node"   // Incluye tipos de Node.js
+    ],
+    "module": "commonjs",  // Usa módulos CommonJS para Jest
+    "target": "ES2020",    // Usa ES2020 como target para que Jest pueda manejar el código
+    "esModuleInterop": true
   },
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.spec.ts",  // Archivos de prueba
+    "src/**/*.d.ts"      // Archivos de declaraciones
   ]
 }
